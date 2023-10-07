@@ -1,0 +1,33 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h1>{{ title }}</h1>
+
+<section id="articles">
+    <article>
+        <h2><a href="#article1">Заголовок статьи 1</a></h2>
+        <p><strong>Автор:</strong> Иван Иванов</p>
+        <p><strong>Дата публикации:</strong> 01.01.2023</p>
+        <p>Краткое описание статьи 1. В этой статье рассматриваются основные принципы и методологии backend-разработки...</p>
+        <a href="#article1">Читать далее...</a>
+    </article>
+    <hr>
+    <article>
+        <h2><a href="#article2">Заголовок статьи 2</a></h2>
+        <p><strong>Автор:</strong> Петр Петров</p>
+        <p><strong>Дата публикации:</strong> 02.01.2023</p>
+        <p>Краткое описание статьи 2. В данной статье рассказывается о использовании популярных инструментов и технологий в backend-разработке...</p>
+        <a href="#article2">Читать далее...</a>
+    </article>
+</section>
+
+<section id="pagination">
+    <p>Страница 1 из 10</p>
+    <nav>
+        <a href="#prev">Предыдущая</a>
+        <a href="#next">Следующая</a>
+    </nav>
+</section>
+
+{% endblock %}

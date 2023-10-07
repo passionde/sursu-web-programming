@@ -1,0 +1,44 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h1>{{ title }}</h1>
+
+<section id="contact-info">
+    <address>
+        <strong>Офис:</strong><br>
+        Улица Программистов, 1<br>
+        Город Кодов, СТ 12345<br>
+        <abbr title="Phone">Тел:</abbr> +7 (922) 763-0371
+    </address>
+
+    <address>
+        <strong>Email:</strong><br>
+        <a href="mailto:yarikdev@bk.ru">yarikdev@bk.ru</a>
+    </address>
+</section>
+
+<section id="social-media">
+    <h2>Мы в социальных сетях</h2>
+    <p>Следите за нашими обновлениями и присоединяйтесь к обсуждению!</p>
+    <ul>
+        <li><a href="https://www.facebook.com/itblog" target="_blank">Facebook</a></li>
+        <li><a href="https://www.twitter.com/itblog" target="_blank">Twitter</a></li>
+        <li><a href="https://www.linkedin.com/company/itblog" target="_blank">LinkedIn</a></li>
+    </ul>
+</section>
+
+<section id="contact-form">
+    <h2>Свяжитесь с нами</h2>
+    <form action="#" method="post">
+        <label for="name">Ваше имя:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="email">Ваш email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <label for="message">Сообщение:</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br>
+        <input type="submit" value="Отправить">
+    </form>
+</section>
+
+{% endblock %}
