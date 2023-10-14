@@ -1,0 +1,15 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+
+{% load static %}
+
+<ul>
+    <li><a href="{% url 'links' %}">Страница с полезными материалами</a></li>
+    <li><a href="{% url 'anketa' %}">Анкета</a></li>
+</ul>
+
+
+{% endblock %}
