@@ -6,7 +6,8 @@ from datetime import datetime
 from django.shortcuts import render, redirect
 from django.http import HttpRequest
 from django.contrib.auth.forms import UserCreationForm
-from .forms import AnketaForm
+from .forms import AnketaForm, CommentForm
+from .models import Blog, Comment
 
 
 def home(request):
@@ -130,6 +131,53 @@ def registration(request):
         'app/registration.html',
         {
             'regform': regform,  # передача формы в шаблон веб-страницы
+            'year': datetime.now().year,
+        }
+    )
+
+
+def blog(request):
+    """Renders the blog page."""
+    assert isinstance(request, HttpRequest)
+    posts = Blog.objects.all()  # запрос на выбор всех статей блога из модели
+    return render(
+        request,
+        'app/blog.html',
+        {
+            'title': 'Блог',
+            'posts': posts,  # передача списка статей в шаблон веб-страницы
+            'year': datetime.now().year,
+        }
+    )
+
+
+def blogpost(request, parametr):
+    """Renders the blogpost page."""
+    assert isinstance(request, HttpRequest)
+
+    post_1 = Blog.objects.get(id=parametr)  # запрос на выбор конкретной статьи по параметру
+    comments = Comment.objects.filter(post=parametr)
+
+    if request.method == "POST":  # после отправки данных формы на сервер методом POST
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment_f = form.save(commit=False)
+            comment_f.author = request.user
+            comment_f.date = datetime.now()  # добавляем в модель Комментария (Comment) текущую дату
+            comment_f.post = Blog.objects.get(
+                id=parametr)  # добавляем в модель Комментария (Comment) статью, для которой данный комментарий
+            comment_f.save()  # сохраняем изменения после добавления полей
+            return redirect('blogpost', parametr=post_1.id)  # переадресация на ту же страницу статьи после отправки комментария
+    else:
+        form = CommentForm()  # создание формы для ввода комментария
+
+    return render(
+        request,
+        'app/blogpost.html',
+        {
+            'post_1': post_1,  # передача конкретной статьи в шаблон веб-страницы
+            'comments': comments,
+            'form': form,
             'year': datetime.now().year,
         }
     )

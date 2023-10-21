@@ -45,3 +45,7 @@ input[type="checkbox"].input-validation-error {
 .h3_after_img {
     width: 35px;
 }
+
+h5 {
+    color:aqua;
+}

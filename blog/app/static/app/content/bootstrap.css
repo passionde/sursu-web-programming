@@ -6814,3 +6814,21 @@ td.visible-print {
     display: none !important;
   }
 }
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff;
+}
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #000;
+  background-color: rgb(128, 128, 128);
+}
+
+.blogpost_title {
+  color: darkblue;
+}
+
+
+.carousel-caption p {
+    color: #000;
+}

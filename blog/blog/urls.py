@@ -8,7 +8,6 @@ from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
 from app import forms, views
 
-
 urlpatterns = [
     path('', views.home, name='home'),
     path('contact/', views.contact, name='contact'),
@@ -16,15 +15,16 @@ urlpatterns = [
     path('task_navigation/', views.task_navigation, name='task_navigation'),
     path('links/', views.links, name='links'),
     path('anketa/', views.anketa, name='anketa'),
+    path('blog', views.blog, name='blog'),
+    re_path(r'^(?P<parametr>\d+)/$', views.blogpost, name='blogpost'),
     path('login/',
-         LoginView.as_view
-         (
+         LoginView.as_view(
              template_name='app/login.html',
              authentication_form=forms.BootstrapAuthenticationForm,
              extra_context=
              {
                  'title': 'Log in',
-                 'year' : datetime.now().year,
+                 'year': datetime.now().year,
              }
          ),
          name='login'),
