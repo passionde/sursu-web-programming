@@ -16,6 +16,8 @@
 Лабораторные работы с 4 - 8 выполнены в директории [`blog`](blog), чтобы отследить изменения перемещайтесь по [истории коммитов](https://github.com/passionde/sursu-web-programming/commits/main).
 
 - [Практическое задание по теме 4](https://github.com/passionde/sursu-web-programming/commit/139c7800952f202d59bcc123fa948739f10cd608)
-- [Практическое задание по теме 5](https://github.com/passionde/sursu-web-programming/commit/4f649197e04369b15aa1b861faf81ed135a7bddf)
+- Практическое задание по теме 5
+  - [Версия с ошибкой отображения формы](https://github.com/passionde/sursu-web-programming/commit/4f649197e04369b15aa1b861faf81ed135a7bddf)
+  - [Версия без ошибки](https://github.com/passionde/sursu-web-programming/commit/6a8d7ca679f753b1ee32243434a3c39f6f804987)
 - [Практическое задание по теме 6](https://github.com/passionde/sursu-web-programming/commit/3e2c96d02e733d26c105d9ff498d0e717624575d)
 - [Практическое задание по теме 7](https://github.com/passionde/sursu-web-programming/commit/a7f9f87c6a29cd2a17fc0c57ae8eb68856b9dea2)
