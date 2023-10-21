@@ -21,3 +21,4 @@
   - [Версия без ошибки](https://github.com/passionde/sursu-web-programming/commit/6a8d7ca679f753b1ee32243434a3c39f6f804987)
 - [Практическое задание по теме 6](https://github.com/passionde/sursu-web-programming/commit/3e2c96d02e733d26c105d9ff498d0e717624575d)
 - [Практическое задание по теме 7](https://github.com/passionde/sursu-web-programming/commit/a7f9f87c6a29cd2a17fc0c57ae8eb68856b9dea2)
+- [Практическое задание по теме 8.1](https://github.com/passionde/sursu-web-programming/commit/47dcbef6116a49f2d08fc7dfde903815f9aeaf8c)
