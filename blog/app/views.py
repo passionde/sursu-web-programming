@@ -89,12 +89,12 @@ def anketa(request):
             data['job'] = form.cleaned_data['job']
             data['gender'] = gender[form.cleaned_data['gender']]
             data['internet'] = internet[form.cleaned_data['internet']]
-        if (form.cleaned_data['notice'] == True):
-            data['notice'] = 'Дa'
-        else:
-            data['notice'] = 'Heт'
             data['email'] = form.cleaned_data['email']
             data['message'] = form.cleaned_data['message']
+            if form.cleaned_data['notice']:
+                data['notice'] = 'Дa'
+            else:
+                data['notice'] = 'Heт'
         form = None
     else:
         form = AnketaForm()
