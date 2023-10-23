@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'f0a958a4-2e84-4de0-94f9-e97ef2acfa05'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['passionde.pythonanywhere.com']
 
@@ -117,9 +117,3 @@ STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
-
-if not DEBUG:
-    MEDIA_ROOT = '/home/passionde/blog/media'
-    MEDIA_URL = '/media/'
-    STATIC_ROOT = '/home/passionde/blog/static'
-    STATIC_URL = '/static/'
