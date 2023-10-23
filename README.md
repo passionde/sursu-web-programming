@@ -22,3 +22,8 @@
 - [Практическое задание по теме 6](https://github.com/passionde/sursu-web-programming/commit/3e2c96d02e733d26c105d9ff498d0e717624575d)
 - [Практическое задание по теме 7](https://github.com/passionde/sursu-web-programming/commit/a7f9f87c6a29cd2a17fc0c57ae8eb68856b9dea2)
 - [Практическое задание по теме 8.1](https://github.com/passionde/sursu-web-programming/commit/47dcbef6116a49f2d08fc7dfde903815f9aeaf8c)
+- [Практическое задание по теме 8.2](https://github.com/passionde/sursu-web-programming/commit/3065fc090f0452e51a26a5ecbfb6bbf15584ac65)
+
+## Прочее
+
+Сайт доступен по этой [ссылке](https://passionde.pythonanywhere.com/)
