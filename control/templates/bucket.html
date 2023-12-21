@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Gift Shop</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="column-products">
+      {% for product in products %}
+      <div class="product">
+        <div class="product-info">
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.description }}</p>
+            <p>
+                {{ product.price }}₽
+                <button class="btn btn-primary" onclick='addToCart({{ product.id }})'>+</button>
+                <button class="btn btn-danger" onclick='removeFromCart({{ product.id }})'>-</button>
+            </p>
+        </div>
+        <div class="product-img-wrap">
+            <img class="product-img" src="{{ product.image_link }}" alt="картинка товара {{ product.name }}">
+        </div>
+
+      </div>
+      {% endfor %}
+    </div>
+    <div class="column-cart">
+      <div class="cart-wrap">
+          <h2>Корзина товаров 🛒</h2>
+          <ul id="cart">
+            {% for item in cart %}
+            <li>
+                <button class="btn btn-primary" onclick='addToCart({{ item.id }})'>+</button>
+                <button class="btn btn-danger" onclick='removeFromCart({{ item.id }})'>-</button>
+                {{ item.name }}: {{ item.quantity }} x {{ item.price }}₽
+            </li>
+            {% endfor %}
+          </ul>
+          {% if cart %}
+          <button class="btn btn-buy" onclick='orderBuy()'>Оформить</button>
+          {% endif %}
+          <button class="btn btn-buy" onclick='updateRow()'>Обновить</button>
+      </div>
+    </div>
+  </div>
+    <div class="form-popup" id="myForm">
+      <form action="/order-commit" class="form-container">
+        <h1>Оформление доставки</h1>
+        <p class="message" id="messageID"></p>
+
+        <label for="email"><b>Почта</b></label>
+        <input type="text" placeholder="Ваша почта" name="email" required>
+
+        <label for="address"><b>Адрес доставки</b></label>
+        <input type="text" placeholder="Куда доставить заказ" name="address" required>
+
+        <button type="submit" class="btn">Оформить</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Закрыть</button>
+      </form>
+    </div>
+
+
+<script>
+function reqListener() {
+    console.log(this.responseText);
+}
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+function removeFromCart(product_id) {
+    const req = new XMLHttpRequest();
+    req.addEventListener('load', reqListener);
+    req.open('GET', '/cart-del/'+product_id);
+    req.send();
+    location.reload()
+}
+function addToCart(product_id) {
+    const req = new XMLHttpRequest();
+    req.addEventListener('load', reqListener);
+    req.open('GET', '/cart-add/'+product_id);
+    req.send();
+    location.reload()
+}
+function notificationAfterBuy() {
+    if (this.responseText === "empty") {
+        return;
+    }
+    document.getElementById("messageID").textContent = this.responseText;
+    document.getElementById("myForm").style.display = "block";
+}
+function orderBuy() {
+    const req = new XMLHttpRequest();
+    req.addEventListener('load', notificationAfterBuy);
+    req.open('GET', '/order-buy');
+    req.send();
+}
+function updateRow() {
+    const req = new XMLHttpRequest();
+    req.addEventListener('load', reqListener);
+    req.open('GET', '/update-row');
+    req.send();
+    location.reload()
+}
+</script>
+</body>
+</html>

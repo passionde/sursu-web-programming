@@ -1,0 +1,84 @@
+<style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+
+    #myBtn {
+      background-color: #9C27B0;
+      color: white;
+      padding: 12px 16px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      width: 180px;
+    }
+
+    .modal {
+        display: block; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+
+    .modal-content {
+        position: relative;
+        background-color: #E1BEE7;
+        margin: auto;
+        padding: 0;
+        border: 5px solid #7B1FA2;
+        width: 50%;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        -webkit-animation-name: animatetop;
+        -webkit-animation-duration: 0.4s;
+        animation-name: animatetop;
+        animation-duration: 0.4s
+    }
+
+
+    @-webkit-keyframes animatetop {
+        from {top:-300px; opacity:0}
+        to {top:0; opacity:1}
+    }
+
+    @keyframes animatetop {
+        from {top:-300px; opacity:0}
+        to {top:0; opacity:1}
+    }
+
+    .modal-header {
+        padding: 2px 16px;
+        background-color: #9C27B0;
+        color: white;
+    }
+
+    .modal-body {padding: 2px 16px;}
+
+</style>
+
+<body>
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Заявка оформлена</h2>
+    </div>
+    <div class="modal-body">
+      <p>Спасибо за покупку! Заходите еще)</p>
+      <ul>
+          {% for item in data.products %}
+            <li>
+                {{ item }}
+            </li>
+          {% endfor %}
+      </ul>
+      <p>Номер вашего заказа {{ data.order_id }}. Итоговая стоимость: {{ data.summa }}</p>
+    </div>
+  </div>
+</div>
+</body>
